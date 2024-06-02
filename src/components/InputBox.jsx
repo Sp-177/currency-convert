@@ -20,7 +20,7 @@ function InputBox({label,amount,onAmountChange,onCurrencyChange,currencyOptions,
             </label>
             <select className='box' value={selectCurrency} onChange={(e)=>{onCurrencyChange(e.target.value)}}>
                 {currencyOptions.map((currency)=>{
-                    return <option key={currency} value={currency}>{currency}</option>
+                    return <option  key={currency} value={currency}>{currency}</option>
                 })}
             </select>
         </div>
