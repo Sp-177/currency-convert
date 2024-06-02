@@ -72,7 +72,7 @@
   border-radius: 15px;
   margin-top: -10px;
   margin-bottom: -10px;
-  position: relative;
+  position: relative;cursor: pointer;box-shadow: inset;
 }
 
 #convert {
@@ -82,9 +82,16 @@
   font-weight: 500;
   height: 40px;
   margin-top: 20px;
-  border-radius: 15px;
+  border-radius: 15px;cursor: pointer;box-shadow: inset;
 }
-
+#swap:active{
+  transform: scale(0.98);
+  box-shadow: 1px 2px 22px 1px gray ;
+}
+#convert:active{
+  transform: scale(0.98);
+  box-shadow: 1px 2px 22px 1px gray ;
+}
 @media (max-width: 768px) {
   .main {
     width: 80%;

@@ -1,24 +1,27 @@
-import React from 'react'
+import { isDisabled } from '@testing-library/user-event/dist/utils';
+import React, { useId } from 'react'
 
-function InputBox({label="From",amount,onAmountChange,onCurrentChange,currencyOptions=[],selectCurrency="usd",}) {
-  return (
+function InputBox({label,amount,onAmountChange,onCurrencyChange,currencyOptions,selectCurrency,amountDisable=false}) {
+  const amountid=useId();
+    return (
+    
    <>
    <div className='input'>
         <div className='col'>
-            <label>
+            <label htmlFor={amountid}>
                 {label}
             </label>
-            <input className='box' type='number' value={amount}></input>
+            <input id={amountid} className='box' type='number' value={amount} onChange={(e)=>{onAmountChange(Number(e.target.value))} } readOnly={amountDisable}></input>
 
         </div>
         <div className='col'>
         <label>
                 Currency Type
             </label>
-            <select className='box'>
-                <option >
-                    usd
-                </option>
+            <select className='box' value={selectCurrency} onChange={(e)=>{onCurrencyChange(e.target.value)}}>
+                {currencyOptions.map((currency)=>{
+                    return <option key={currency} value={currency}>{currency}</option>
+                })}
             </select>
         </div>
    </div>
